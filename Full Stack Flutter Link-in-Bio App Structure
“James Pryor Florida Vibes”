@@ -1,0 +1,111 @@
+link_in_bio_app/
+│
+├── lib/
+│   ├── main.dart
+│   │
+│   ├── core/
+│   │   ├── constants/
+│   │   │   ├── app_colors.dart
+│   │   │   ├── app_strings.dart
+│   │   │   └── app_assets.dart
+│   │   │
+│   │   ├── themes/
+│   │   │   ├── dark_theme.dart
+│   │   │   └── light_theme.dart
+│   │   │
+│   │   ├── utils/
+│   │   │   ├── validators.dart
+│   │   │   ├── helpers.dart
+│   │   │   └── animations.dart
+│   │   │
+│   │   └── services/
+│   │       ├── firebase_service.dart
+│   │       ├── auth_service.dart
+│   │       ├── analytics_service.dart
+│   │       └── storage_service.dart
+│   │
+│   ├── models/
+│   │   ├── user_model.dart
+│   │   ├── social_link_model.dart
+│   │   ├── analytics_model.dart
+│   │   └── theme_model.dart
+│   │
+│   ├── controllers/
+│   │   ├── auth_controller.dart
+│   │   ├── profile_controller.dart
+│   │   ├── theme_controller.dart
+│   │   └── link_controller.dart
+│   │
+│   ├── repositories/
+│   │   ├── auth_repository.dart
+│   │   ├── profile_repository.dart
+│   │   ├── analytics_repository.dart
+│   │   └── social_links_repository.dart
+│   │
+│   ├── screens/
+│   │   ├── splash/
+│   │   │   └── splash_screen.dart
+│   │   │
+│   │   ├── auth/
+│   │   │   ├── login_screen.dart
+│   │   │   └── register_screen.dart
+│   │   │
+│   │   ├── home/
+│   │   │   └── home_screen.dart
+│   │   │
+│   │   ├── profile/
+│   │   │   ├── profile_screen.dart
+│   │   │   ├── edit_profile_screen.dart
+│   │   │   └── public_profile_screen.dart
+│   │   │
+│   │   ├── editor/
+│   │   │   ├── add_link_screen.dart
+│   │   │   ├── edit_link_screen.dart
+│   │   │   └── customize_theme_screen.dart
+│   │   │
+│   │   └── analytics/
+│   │       └── analytics_screen.dart
+│   │
+│   ├── widgets/
+│   │   ├── custom_button.dart
+│   │   ├── profile_card.dart
+│   │   ├── social_tile.dart
+│   │   ├── analytics_chart.dart
+│   │   ├── custom_textfield.dart
+│   │   └── gradient_background.dart
+│   │
+│   ├── routes/
+│   │   └── app_routes.dart
+│   │
+│   └── firebase_options.dart
+│
+├── assets/
+│   ├── images/
+│   │   ├── james_profile.png
+│   │   ├── florida_bg.jpg
+│   │   └── tattoo_style_banner.png
+│   │
+│   ├── icons/
+│   │   ├── instagram.png
+│   │   ├── tiktok.png
+│   │   ├── youtube.png
+│   │   └── snapchat.png
+│   │
+│   └── fonts/
+│       └── Poppins-Regular.ttf
+│
+├── backend/
+│   ├── server.js
+│   ├── routes/
+│   │   ├── auth_routes.js
+│   │   ├── profile_routes.js
+│   │   └── analytics_routes.js
+│   │
+│   ├── controllers/
+│   ├── models/
+│   └── config/
+│
+├── pubspec.yaml
+├── package.json
+├── firebase.json
+└── README.md
