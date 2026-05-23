@@ -1,0 +1,10 @@
+app.post('/create-profile', async (req, res) => {
+   const profile = req.body;
+
+   // Save profile to database
+
+   res.status(200).json({
+      success: true,
+      message: "Profile Created Successfully"
+   });
+});
