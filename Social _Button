@@ -1,0 +1,193 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const HeartThreadsApp());
+}
+
+class HeartThreadsApp extends StatelessWidget {
+  const HeartThreadsApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: '❤️ Heart Motivation Threads',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: Colors.black,
+        primarySwatch: Colors.red,
+      ),
+      home: const HeartThreadsPage(),
+    );
+  }
+}
+
+class HeartThreadsPage extends StatelessWidget {
+  const HeartThreadsPage({super.key});
+
+  final List<String> heartTexts = const [
+    "❤️✨ Motivation fades. Systems stay. Build what survives your moods.",
+    "💖🔥 You don’t rise to goals. You fall to your routines.",
+    "❤️🌈 Discipline isn’t magic. It’s repetition with purpose.",
+    "💕🚀 Small habits beat big speeches every single time.",
+    "💘📅 Your future is hiding inside your daily schedule.",
+    "❤️💎 Success loves consistency more than intensity.",
+    "💞⚡ Stop waiting to feel ready. Systems don’t ask for permission.",
+    "❤️🎯 Productivity isn’t doing more. It’s doing what matters repeatedly.",
+    "💓🚗 Motivation starts the engine. Systems finish the trip.",
+    "❤️🌟 Make your habits so simple you can’t avoid them.",
+
+    "💖🧠 You don’t need another app. You need fewer distractions.",
+    "❤️☁️ A calm routine is more powerful than chaotic ambition.",
+    "💕🔥 Burnout often comes from confusion, not effort.",
+    "💘👀 Focus is a superpower in a distracted world.",
+    "❤️📌 If it matters, schedule it. If it’s scheduled, protect it.",
+    "💞🏡 Your environment shapes your behavior more than your willpower.",
+    "❤️🔄 Build routines that work even when your energy doesn’t.",
+    "💓🌱 The goal is progress without self-destruction.",
+    "❤️⌛ Busy doesn’t always mean productive.",
+    "💖🕊️ Systems create freedom. Chaos creates stress.",
+
+    "❤️🎧 One focused hour beats eight distracted ones.",
+    "💕📈 You don’t need motivation every day. You need momentum.",
+    "💘🌟 Consistency compounds quietly before it changes your life loudly.",
+    "❤️🛡️ Protect your peace like it’s part of your productivity strategy.",
+    "💞🗳️ Your habits are voting for your future every day.",
+    "❤️🌿 Tiny improvements become massive results over time.",
+    "💓⚙️ The simpler the system, the more sustainable the success.",
+    "❤️🚫 Stop chasing hacks. Start mastering basics.",
+    "💖💪 Discipline grows when excuses shrink.",
+    "❤️😵 Productivity without purpose is just organized exhaustion.",
+
+    "💕🏗️ Structure saves you on the days motivation disappears.",
+    "💘😌 Rest is part of the system, not a reward for suffering.",
+    "❤️🎨 Perfection delays progress. Start messy anyway.",
+    "💞🔁 You become what you repeatedly tolerate.",
+    "❤️📵 Every distraction has a hidden cost.",
+    "💓🧩 Habits shape identity faster than inspiration.",
+    "❤️🚶 Momentum begins with one completed task.",
+    "💖⚡ Stop overplanning. Start executing.",
+    "❤️🎯 Focus on systems, and results will follow naturally.",
+    "💕🤖 Motivation is emotional. Systems are mechanical.",
+
+    "💘🔄 Success gets easier when your routines become automatic.",
+    "❤️😓 Most stress comes from avoiding what needs attention.",
+    "💞🌬️ Simplify your priorities and your mind will breathe easier.",
+    "❤️📱 Your phone steals more dreams than failure ever will.",
+    "💓❤️ Discipline is remembering what you want most.",
+    "❤️🙏 Build habits that future-you will thank you for.",
+    "💖📊 Don’t count hours worked. Count meaningful progress made.",
+    "❤️🏆 Consistency looks boring until it creates extraordinary results.",
+    "💕🧠 Focus isn’t about time management. It’s attention management.",
+    "💘🛡️ Systems protect you from emotional decision-making.",
+
+    "❤️🪞 Your routines reveal your real priorities.",
+    "💞🎉 Motivation loves excitement. Growth loves repetition.",
+    "❤️🔁 Stop restarting. Continue imperfectly instead.",
+    "💓🌙 Great days are built the night before.",
+    "❤️⚖️ Reduce friction for good habits. Increase friction for bad ones.",
+    "💖🏃 The goal isn’t constant hustle. It’s sustainable momentum.",
+    "❤️🚪 Productivity begins when distractions end.",
+    "💕🧠 Every small action teaches your brain who you are.",
+    "💘🌊 Systems create stability during emotional storms.",
+    "❤️⚡ Action creates clarity faster than thinking ever will.",
+
+    "💞🌅 Protect your mornings from noise and negativity.",
+    "❤️🎯 If your habits don’t support your goals, your goals are fantasies.",
+    "💓🌱 Tiny routines can transform entire lives.",
+    "❤️⏰ Stop waiting for perfect timing. Build reliable timing.",
+    "💖💰 Attention is your most valuable currency.",
+    "❤️🚫 Most people quit because they rely only on feelings.",
+    "💕🛠️ Strong systems reduce weak excuses.",
+    "💘🕊️ Productivity should create freedom, not prison.",
+    "❤️💪 Discipline is self-respect in action.",
+    "💞🌠 Your routine either builds your dreams or delays them.",
+
+    "❤️🎯 Focus on fewer things with greater intention.",
+    "💓🚀 Motivation can inspire you. Systems can carry you.",
+    "❤️🧹 Clarity removes resistance.",
+    "💖🔁 Repetition rewires identity.",
+    "❤️🤫 The people who win usually keep showing up quietly.",
+    "💕🌻 Progress loves patience.",
+    "💘🧘 Stop glorifying burnout. Start respecting balance.",
+    "❤️🌤️ Systems remove the pressure to feel inspired every day.",
+    "💞🤝 Habits are promises you keep to yourself.",
+    "❤️🧠 Every focused decision builds mental strength.",
+
+    "💓🏔️ Consistency is confidence built over time.",
+    "❤️🏡 Discipline is easier when your environment supports success.",
+    "💖🔄 Your future depends on your repeated actions, not your occasional effort.",
+    "❤️🕯️ Most breakthroughs are hidden inside boring routines.",
+    "💕🚫 Productivity grows when comparison disappears.",
+    "💘🐢 Slow progress is still movement.",
+    "❤️🎮 You can’t control motivation. You can control systems.",
+    "💞🗂️ Organized habits reduce emotional chaos.",
+    "❤️🌞 Winning the morning often wins the day.",
+    "💓📈 Stop chasing motivation spikes. Build steady momentum instead.",
+
+    "❤️⚙️ Simple systems outperform complicated intentions.",
+    "💖🚪 Focus is saying no to almost everything.",
+    "❤️🧠 The secret to discipline is reducing unnecessary decisions.",
+    "💕🏗️ Sustainable success is built quietly behind the scenes.",
+    "💘🌱 Motivation is temporary. Identity-driven habits last longer.",
+    "❤️🤍 Consistency creates trust in yourself.",
+    "💞📅 Your schedule exposes your real values.",
+    "❤️☮️ Productivity without peace isn’t success.",
+    "💓🏝️ Build a life that doesn’t require constant escape.",
+    "❤️🔥 Systems turn dreams into daily actions—and daily actions change lives."
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        title: const Text(
+          "❤️ 100 Heart Motivation Threads",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1,
+          ),
+        ),
+        centerTitle: true,
+      ),
+      body: ListView.builder(
+        padding: const EdgeInsets.all(14),
+        itemCount: heartTexts.length,
+        itemBuilder: (context, index) {
+          return Container(
+            margin: const EdgeInsets.only(bottom: 14),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Colors.red.shade900,
+                  Colors.pink.shade700,
+                ],
+              ),
+              borderRadius: BorderRadius.circular(22),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.red.withOpacity(0.4),
+                  blurRadius: 10,
+                  offset: const Offset(0, 5),
+                ),
+              ],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(18),
+              child: Text(
+                "${index + 1}. ${heartTexts[index]}",
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  height: 1.5,
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}
