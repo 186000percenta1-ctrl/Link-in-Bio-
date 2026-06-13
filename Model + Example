@@ -1,0 +1,151 @@
+// Core enums
+export type Cadence = 'Weekly' | 'Monthly' | 'Quarterly' | 'SemiAnnual' | 'Annual';
+
+export type Category = 'ManagingBusiness' | 'ManagingTeam';
+
+// KPI structure
+export interface KPI {
+  name: string;
+  target: number; // percentage (e.g., 90 = 90%)
+  description?: string;
+}
+
+// Task / Activity
+export interface Activity {
+  name: string;
+  description?: string;
+  cadence: Cadence;
+  category: Category;
+  tools?: string[];
+}
+
+// Dashboard / Reports
+export interface Dashboard {
+  name: string;
+  purpose: string;
+}
+
+// Main Operating Rhythm संरcture
+export interface OperatingRhythm {
+  kpis: KPI[];
+  dashboards: Dashboard[];
+  activities: Activity[];
+}
+
+// Example implementation
+export const saManagerOperatingRhythm: OperatingRhythm = {
+  kpis: [
+    {
+      name: 'CSP Coverage',
+      target: 100,
+      description: 'CSPs created and reviewed for all qualifying opportunities',
+    },
+    {
+      name: 'Tech Eval Win Rate',
+      target: 90,
+      description: 'SA validated technical evaluations win rate',
+    },
+    {
+      name: 'POV Win Rate',
+      target: 90,
+      description: 'Proof of Value success rate',
+    },
+  ],
+
+  dashboards: [
+    {
+      name: 'CQ Hygiene Metrics',
+      purpose: 'Track CSP completion and review rates',
+    },
+    {
+      name: 'POV & Tech Eval Dashboard',
+      purpose: 'Monitor win rates and evaluation hygiene',
+    },
+    {
+      name: 'SA Activity Dashboard',
+      purpose: 'Track engagement and performance trends',
+    },
+  ],
+
+  activities: [
+    // Weekly - Business
+    {
+      name: 'SA Next Steps Review',
+      cadence: 'Weekly',
+      category: 'ManagingBusiness',
+      tools: ['Salesforce', '1:1 Docs'],
+    },
+    {
+      name: 'Activity Review',
+      cadence: 'Weekly',
+      category: 'ManagingBusiness',
+      tools: ['Dashboards', 'Gong'],
+    },
+    {
+      name: 'Feasibility Ratings Check',
+      cadence: 'Weekly',
+      category: 'ManagingBusiness',
+    },
+    {
+      name: 'Technical Evaluation Review',
+      cadence: 'Weekly',
+      category: 'ManagingBusiness',
+    },
+    {
+      name: 'POV Review',
+      cadence: 'Weekly',
+      category: 'ManagingBusiness',
+    },
+
+    // Monthly
+    {
+      name: 'At-Risk Opportunities Review',
+      cadence: 'Monthly',
+      category: 'ManagingBusiness',
+    },
+    {
+      name: 'Escalation Review',
+      cadence: 'Monthly',
+      category: 'ManagingBusiness',
+    },
+
+    // Quarterly
+    {
+      name: 'Quarterly Business Review (QBR)',
+      cadence: 'Quarterly',
+      category: 'ManagingBusiness',
+    },
+    {
+      name: 'SA Alignment Review',
+      cadence: 'Quarterly',
+      category: 'ManagingBusiness',
+    },
+
+    // Team Management
+    {
+      name: '1:1 Meetings',
+      cadence: 'Weekly',
+      category: 'ManagingTeam',
+    },
+    {
+      name: 'Team Meetings',
+      cadence: 'Weekly',
+      category: 'ManagingTeam',
+    },
+    {
+      name: 'Growth Plan Review',
+      cadence: 'Quarterly',
+      category: 'ManagingTeam',
+    },
+    {
+      name: 'Talent Assessment',
+      cadence: 'SemiAnnual',
+      category: 'ManagingTeam',
+    },
+    {
+      name: 'Compensation Review',
+      cadence: 'Annual',
+      category: 'ManagingTeam',
+    },
+  ],
+};
