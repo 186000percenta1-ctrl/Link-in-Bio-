@@ -1,0 +1,5 @@
+const weeklyBusiness = saManagerOperatingRhythm.activities.filter(
+  (a) => a.cadence === 'Weekly' && a.category === 'ManagingBusiness'
+);
+
+console.log(weeklyBusiness);
