@@ -1,0 +1,99 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const SampleRepliesApp());
+}
+
+class SampleRepliesApp extends StatelessWidget {
+  const SampleRepliesApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Sample Replies',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        useMaterial3: true,
+      ),
+      home: const SampleRepliesPage(),
+    );
+  }
+}
+
+class SampleRepliesPage extends StatelessWidget {
+  const SampleRepliesPage({super.key});
+
+  final Map<String, List<String>> replies = const {
+    "⭐ Positive": [
+      "Great app! Earning coins is quick and easy.",
+      "The interface is clean and simple to use.",
+      "Videos load fast and rewards are credited instantly.",
+      "I've been enjoying this app every day.",
+      "Easy way to earn extra coins.",
+    ],
+    "💬 Neutral": [
+      "Still testing it, but it looks promising.",
+      "The rewards seem decent so far.",
+      "Hopefully the payouts remain consistent.",
+      "The app is easy to navigate.",
+      "Looking forward to trying more campaigns.",
+    ],
+    "🛠️ Feedback": [
+      "Please add more videos to watch.",
+      "A dark mode would be a nice addition.",
+      "Reduce the number of ads between videos.",
+      "Faster coin payouts would improve the experience.",
+      "Please add more payment options.",
+    ],
+    "❓ Questions": [
+      "How long does it take to redeem coins?",
+      "What's the minimum withdrawal amount?",
+      "Which countries are supported?",
+      "How are bonus coins calculated?",
+      "Can I earn more by inviting friends?",
+    ],
+    "📱 Social Media Style": [
+      "Watching videos and collecting rewards! 🎥💰",
+      "Another day, another batch of coins earned. 🚀",
+      "Simple tasks, steady rewards. 👍",
+      "Who's using this app too?",
+      "Grinding for more coins every day! 💸",
+    ],
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Sample Replies"),
+        centerTitle: true,
+      ),
+      body: ListView(
+        children: replies.entries.map((entry) {
+          return ExpansionTile(
+            title: Text(
+              entry.key,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
+            ),
+            children: entry.value.map((reply) {
+              return ListTile(
+                leading: const Icon(Icons.chat_bubble_outline),
+                title: Text(reply),
+                trailing: IconButton(
+                  icon: const Icon(Icons.copy),
+                  onPressed: () {
+                    // Add Clipboard functionality if desired.
+                  },
+                ),
+              );
+            }).toList(),
+          );
+        }).toList(),
+      ),
+    );
+  }
+}
